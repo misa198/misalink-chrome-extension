@@ -14,10 +14,13 @@
                 <input type="text" id='url' placeholder="https://example.com" required>
                 <input type="password" id='password' placeholder="password...">
             </div>
-            <button id='create-button'>Create</button>
+            <button id='create-button'>
+              <span id='create-button-text'>Create</span>
+              <img id='loading' src="/assets/loading.gif" alt="loading">
+            </button>
         </form>
         <div class='result-wrapper'>
-            <input type="text" id="result" value="Result">
+            <input type="text" id="result" value="" placeholder="Result">
             <button id='copy-button'>Copy</button>
         </div>
         <script src="/js/axios.min.js"></script>

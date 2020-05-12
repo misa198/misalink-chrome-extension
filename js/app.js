@@ -5,7 +5,11 @@ window.onload = function () {
 }
 
 const sendReq = () => {
-    $("#input-result").val("Creating...");
+    $('#result').val('');
+    const createText = $('#create-button-text');
+    const loading = $('#loading');
+    createText.css('display', 'none');
+    loading.css('display', 'inline-block');
     const url = $('#url').val();
     const password = $('#password').val();
     const body = {};
@@ -14,6 +18,8 @@ const sendReq = () => {
 
     axios.post(`${baseURL}/document/encode`, body)
     .then(res => {
+        createText.css('display', 'inline-block');
+        loading.css('display', 'none');
         if (res.data.message) $('#result').val('URL is invalid');
         if (res.data.code) $('#result').val(`${baseURL}/${res.data.code}`);
     });
